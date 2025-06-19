@@ -8,7 +8,7 @@ const HeroSecrtion = () => {
           <div className="type-parrent">
             <div>
 
-            <h4 className='name'>NAME</h4>
+            <h4 className='name'>PerfomancePc.com</h4>
             </div>
 
           </div>

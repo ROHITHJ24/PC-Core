@@ -10,7 +10,7 @@ const NavBar = () => {
         <p>Click here to learn more</p>
       </div>
       <nav >
-        <h1 >NAME</h1>
+        <h1 >PerfomancePc</h1>
         <div>
 
           <ul className='nav-links'>
