@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 // Pages
 import Home from './Pages/Home';
-import BuildPage from './Pages/BuildPage';
+import BuildPage from './BuildPage';
 
 function App() {
   const [count, setCount] = useState(0);
