@@ -1,24 +1,23 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from 'react';
 
-import NavBar from './Components/NavBar'
-import HeroSecrtion from './Components/HeroSecrtion'
-import GammingPc from './Components/GammingPc'
-import Footer from './Components/Footer'
-import Products from './Components/Products'
+// Pages
+import Home from './Pages/Home';
+import BuildPage from './Pages/BuildPage';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <>
-     <NavBar/>
-    <HeroSecrtion/>
-    <Products/>
-    <GammingPc/>
-    <Footer />
-
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/BuildPage" element={<BuildPage />} />
+     
+        <Route path="*" element={<h1>Unknow error</h1>} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

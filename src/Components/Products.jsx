@@ -20,7 +20,7 @@ import monitor from '../assets/monitor.webp'
 const Products = () => {
   return (
     <>
-    <div className="product-description">
+    <div className="product-description" id='product-description'>
       <h1>Products</h1>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
     </div>
