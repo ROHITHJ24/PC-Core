@@ -3,12 +3,20 @@ import SlotCard from './Components/SlotCard';
 import { componentsData } from './data';
 
 const BuildPage = () => {
-  const [selectedItems, setSelectedItems] = useState([]); // cart
-  const [currentView, setCurrentView] = useState('cpu'); // tab selection
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [currentView, setCurrentView] = useState('cpu');
+  const [modalImage, setModalImage] = useState(null); // for image modal
 
   const handleAddToBuild = (item) => {
-    // Simply add the item without checking for duplicates
     setSelectedItems([...selectedItems, item]);
+  };
+
+  const openModal = (image) => {
+    setModalImage(image);
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
   };
 
   return (
@@ -32,12 +40,12 @@ const BuildPage = () => {
       <div className="w-full md:w-[60%] grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 overflow-y-auto h-full">
         {componentsData[currentView]?.map((item) => (
           <div key={item.id} className="bg-zinc-800 p-3 rounded shadow-md">
-         <img
-  src={item.image}
-  alt={item.name}
-  className="w-[150px] h-[150px] object-cover rounded mx-auto"
-/>
-
+            <img
+              src={item.image}
+              alt={item.name}
+              className="w-[150px] h-[150px] object-cover rounded mx-auto cursor-pointer"
+              onClick={() => openModal(item.image)}
+            />
             <h3 className="mt-2 text-lg">{item.name}</h3>
             <p className="text-sm text-zinc-400">{item.description}</p>
             <button
@@ -68,6 +76,31 @@ const BuildPage = () => {
           </button>
         )}
       </div>
+
+      {/* Image Modal */}
+      {modalImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={closeModal}
+        >
+          <div
+            className="relative max-w-[60vw] max-h-[60vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={modalImage}
+              alt="Enlarged"
+              className="w-full h-full object-contain rounded-lg"
+            />
+            <button
+              className="absolute top-1 right-2 text-white text-2xl font-bold"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
