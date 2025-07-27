@@ -1,23 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from 'react';
-
-// Pages
-import Home from './Pages/Home';
+// App.jsx
+import React from 'react';
 import BuildPage from './BuildPage';
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/BuildPage" element={<BuildPage />} />
-     
-        <Route path="*" element={<h1>Unknow error</h1>} />
-      </Routes>
-    </Router>
-  );
-}
+const App = () => {
+  return <BuildPage />;
+};
 
 export default App;
