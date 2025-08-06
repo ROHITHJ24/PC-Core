@@ -14,7 +14,7 @@ const HeroSecrtion = () => {
           </div>
 
           <p className="title-desc">
-            Gaming PCs made <br /> Simple
+            Gaming PCs made <br/>Simple
           </p>
 
           <p className="title-para">
